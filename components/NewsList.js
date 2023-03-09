@@ -1,1 +1,5 @@
-// do something!
+class NewsList {
+  //
+}
+
+export default NewsList;
