@@ -1,4 +1,4 @@
-import { makeDOMWithProperties } from "../utils/dom.js";
+import makeDOMWithProperties from '../utils/dom.js';
 
 class Nav {
   constructor($root, selectCategory) {
@@ -6,49 +6,46 @@ class Nav {
     this.selectCategory = selectCategory;
     this.categoryItems = [
       {
-        id: "all",
-        title: "전체보기",
+        id: 'all',
+        title: '전체보기',
       },
       {
-        id: "buisness",
-        title: "비즈니스",
+        id: 'business',
+        title: '비즈니스',
       },
       {
-        id: "entertainment",
-        title: "엔터테인먼트",
+        id: 'entertainment',
+        title: '엔터테인먼트',
       },
       {
-        id: "health",
-        title: "건강",
+        id: 'health',
+        title: '건강',
       },
       {
-        id: "science",
-        title: "과학",
+        id: 'science',
+        title: '과학',
       },
       {
-        id: "sports",
-        title: "스포츠",
+        id: 'sports',
+        title: '스포츠',
       },
       {
-        id: "technology",
-        title: "기술",
+        id: 'technology',
+        title: '기술',
       },
     ];
   }
 
   createNavigationDOM() {
-    const $navigationDOM = makeDOMWithProperties("nav", {
-      className: "category-list",
+    const $navigationDOM = makeDOMWithProperties('nav', {
+      className: 'category-list',
     });
 
-    const $categoryItemListDOM = makeDOMWithProperties(
-      "ul",
-      {}
-    );
+    const $categoryItemListDOM = makeDOMWithProperties('ul', {});
 
     this.categoryItems.forEach((categoryItem) => {
-      const $categoryItemDOM = makeDOMWithProperties("li", {
-        className: "category-item",
+      const $categoryItemDOM = makeDOMWithProperties('li', {
+        className: 'category-item',
         id: categoryItem.id,
         innerHTML: categoryItem.title,
       });
@@ -66,16 +63,7 @@ class Nav {
 
     this.$root.appendChild($navigationDOM);
 
-    // this.$root
-    //   .getElementsByClassName(
-    //     "category-item"
-    //   )[0]
-    //   .classList.add("active");
-
-    $navigationDOM.addEventListener(
-      "click",
-      this.selectCategory
-    );
+    $navigationDOM.addEventListener('click', this.selectCategory);
   }
 }
 
